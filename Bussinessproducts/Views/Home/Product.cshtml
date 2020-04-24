@@ -1,0 +1,150 @@
+﻿@{
+    Layout = "~/Views/Shared/Bussinesssiteshared.cshtml";
+    var product = ViewBag.product;
+    int i = 0;
+    int positioncont = ViewBag.positions;
+    int positioncounting = ViewBag.countingposition;
+    int lx = 0;
+    string ly = "no";
+    int loopcount = 4;
+
+}
+<head>
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+
+<div class="container">
+    <!--Header Image-->
+    <div class="row">
+        <div class="col-md col-sm" style="border-radius:15px 15px 15px 15px;">
+            <img src="~/Image/bussiness.jpeg" style="width:100%; border-radius:15px 15px 15px 15px; " />
+        </div>
+    </div>
+    <!--Header Image End-->
+    <!--Product Title-->
+    <div class="row" id="webtemplatetitle" style="background-color:#f8f9fa; border-radius:10px 10px 10px 10px; padding:20px 20px 20px 20px;margin-top:10px">
+        <div class="col-md col-sm">
+            <h4 style="color:Blue">  Product
+        </div>
+    </div>
+    <!--Product Title End-->
+    <!--Assign Product-->
+    @{
+        for (int y = 0; y < positioncont; y++) //Loop product Row
+        {
+            <div class="row" id="imagerow" style="margin-top:30px;">
+                @for (int yx = 1; yx < 4; yx++) // loop assign prduct column
+                {
+                    lx = (y * 3) + yx;// count of assign product
+                    var Concatproductdetails =  product[i].productPrice + "#" + product[i].descountPresentage + "#" + product[i].id + "#"+ product[i].title + "#" ;// concat product details
+
+                    <div class="col-sm">
+                        <div class="container" id="imagesdrop" style="background:#f8f9fa; padding:10px 10px 10px 10px">
+                            <img src="~/Image/Product/@product[i].image" alt="Avatar" class="image" style="width:100%"> @*assign to product image*@
+                            <div class="middle">
+
+                                <input type="hidden" value="@product[i].id" name="id" /> // send Hidden field Product Table Id
+                                <button type="button" onclick="document.getElementById('id01').style.display='block'" value=@Concatproductdetails class="btn btn-danger btn-lg" data-toggle="modal" data-target="#exampleModal">Purchuse product</button>// submit button submit to product id
+
+                            </div>
+                        </div>
+
+                        <div class="container" id="imagesdrop" style="background:#f8f9fa; margin-top:15px">
+                            <div class="col-sm" style="padding-top:30px; padding-bottom:10px;">
+                                <h4 style="color:green"> @product[i].title</h4>@*assign to product Title*@
+                                <p>@product[i].description</p>@*assign to product Description*@
+
+                            </div>
+                            <div class="col-sm" style="padding-top:30px; padding-bottom:0px;">
+                                <h4 style="color:green">Rs. @product[i].productPrice</h4>@*assign to product price*@
+                            </div>
+                            <div class="col-sm">
+                                <p style="color:green">Descount. @product[i].descountPresentage %</p>@*assign to product Discount Presentage*@
+                            </div>
+                        </div>
+                    </div>
+                    if (lx == positioncounting) // finish all product count if codition is true and breack loop
+                    {
+                        ly = "yes";
+                        loopcount = yx + 1;
+                        break;
+                    }
+                    i++;
+                }
+
+                @if (ly == "yes")
+                {
+                    for (int k = loopcount; k < 4; k++) // one row not completed assign to Empty div becouse avoid change size by assigned product
+                    {
+                        <div class="col-sm"></div>
+                    }
+                    break;
+                }
+            </div>
+
+        }
+
+    }
+    <!--End Product-->
+</div>
+@using (Html.BeginForm())
+{
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Fill Form And Submit Colorslib Team</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    <div class="modal-body">
+                        <div class="form-group">
+
+                            <input type="hidden" class="form-control" id="ids" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Purchuse Product Title</label>
+                            <input type="text" class="form-control" id="title" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Sell Price Include Discount</label>
+                            <input type="text" class="form-control" id="sellprice" name="sellprice">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    $("button").click(function () {
+        var fired_button = $(this).val();//get string variable submit button value
+        alert(fired_button);//alert data sucess
+        var result = fired_button.split('#');//seperate # word
+       
+        var productprice = result[0];
+        var descount = result[1];
+        var sellprice = productprice - (productprice * (descount / 100));//get sellprice
+        $("#title").val(result[3]);//assign value fields
+        $("#sellprice").val(sellprice);
+        $("#ids").val(result[2]);
+
+    });
+
+</script>
+
+<script>
+    function submitform(thiss) {
+        $('form').submit();
+    }
+</script>

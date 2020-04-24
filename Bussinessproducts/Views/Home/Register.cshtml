@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = "~/Views/Shared/Bussinesssiteshared.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md col-sm">
+            <img src="~/Image/mobile.png" style="width:100%" />
+            
+        </div>
+        <div class="col-sm">
+            <div class="row" style="margin-bottom:30px;">
+                <div class="col-sm" style="border-radius: 10px 10px 10px 10px; padding:20px 20px 20px 20px; background-color:#f8f9fa; color:green">
+                    <h4 style="text-align:center"> Register </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Product Tittle</label>
+                            <input type="text" class="form-control" name="title" id="exampleInputPassword1" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Product Tittle</label>
+                            <input type="text" class="form-control" name="title" id="exampleInputPassword1" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Product Tittle</label>
+                            <input type="text" class="form-control" name="title" id="exampleInputPassword1" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Product Tittle</label>
+                            <input type="text" class="form-control" name="title" id="exampleInputPassword1" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Product Tittle</label>
+                            <input type="text" class="form-control" name="title" id="exampleInputPassword1" placeholder="Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Select Type</label>
+                            <select class="custom-select" id="inputGroupSelect04" name="type">
+                                <option value="admin">Admin</option>
+                                <option value="user" selected>User</option>
+                            </select>
+
+                        </div>
+                        <button type="submit" class="btn btn-outline-success" style="width:100%; margin-bottom:10px">Register</button>
+                    }
+                    <a href='@Url.Action("Login", "Home")'><button type="button" class="btn btn-outline-danger" style="width:100%">Go To Sign In Page</button></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    function submitform(thiss) {
+        $('form').submit();
+    }
+</script>

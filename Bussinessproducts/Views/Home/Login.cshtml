@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = "~/Views/Shared/Bussinesssiteshared.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md col-sm">
+            <img src="~/Image/mobile.png" style="width:100%" />
+        </div>
+        <div class="col-sm">
+            <div class="row" style="margin-bottom:30px;">
+                <div class="col-sm" style="border-radius: 10px 10px 10px 10px; padding:20px 20px 20px 20px; background-color:#f8f9fa; color:blue">
+                    <h4 style="text-align:center">  Login </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"> Email address </label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-success" style="width:100%; margin-bottom:10px">Login</button>
+                    }
+                    <a href='@Url.Action("Register", "Home")'><button type="button" class="btn btn-outline-danger" style="width:100%">Go To Register Page</button></a>
+                </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <div class="col-sm">
+                    <div class="g-signin2" data-onsuccess="onSignIn" style="width:100%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

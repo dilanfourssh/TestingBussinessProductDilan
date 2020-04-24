@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Shared/Bussinesssiteshared.cshtml";
+}
+
+<div class="container">
+    <!--Header Image-->
+    <div class="row" id="webtemplatetitle" style="margin-bottom:20px">
+        <div class="col-md col-sm" style="border-radius:15px 15px 15px 15px;"><img src="~/Image/bussiness.jpeg" style="width:100%; border-radius:15px 15px 15px 15px; " /></div>
+    </div>
+    <!--Header Image End-->
+
+    <!--Product Section-->
+    <!--section title-->
+    <div class="row" id="webtemplatetitle" style="background-color:#f8f9fa; border-radius:10px 10px 10px 10px; padding:20px 20px 20px 20px;margin-bottom:10px">
+        <div class="col-md col-sm">
+            <h4 style="color:blue">
+                Click Production Category
+            </h4>
+        </div>
+    </div>
+    <!--section title End-->
+    <!--Product List-->
+    <div class="row">
+        <div class="col-md col-sm">
+
+            <div class="row">
+                <div class="col-md col-sm">
+                    <img src="~/Image/simple1.png" style="width:100%;" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md col-sm">
+                    This Product is Simple It is Low price and not Discount
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md col-sm">
+                    <a href='@Url.Action("Product", "Home",new { category = "simple"})'>
+                        <button type="button" class="btn btn-primary" style="width:100%">View Simple Product</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md col-sm">
+
+            <div class="row">
+                <div class="col-md col-sm">
+                    <img src="~/Image/simple1.png" style="width:100%;" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md col-sm">
+                    This Product is Middle It is Low price and Have Discount
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md col-sm">
+                    <a href='@Url.Action("Product", "Home",new { category = "middle"})'>
+                        <button type="button" class="btn btn-primary" style="width:100%">View Middle Product</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md col-sm">
+
+            <div class="row">
+                <div class="col-md col-sm">
+                    <img src="~/Image/simple2.png" style="width:100%;" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md col-sm">
+                    This Product is High It is High price and Have Discount
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md col-sm">
+                    <a href='@Url.Action("Product", "Home",new { category = "high"})'>
+                        <button type="button" class="btn btn-primary" style="width:100%">View High Product</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Product List End-->
+    <!--Product Section End-->
+
+
+</div>

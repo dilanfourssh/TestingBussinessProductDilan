@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = null;
+    var types = "admin";
+
+}
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <title>BussinesssiteTestingSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link href="~/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom:40px">
+        <a class="navbar-brand" href='@Url.Action("Index", "Home")'>
+            <h4 style="color:green">
+                BussinessProductSite
+            </h4>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link " href='@Url.Action("Index", "Home")'>Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Product
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href='@Url.Action("Product", "Home", new { category = "simple"})'>Simple product</a>
+                        <a class="dropdown-item" href='@Url.Action("Product", "Home",new { category = "middle"})'>Middle product</a>
+                        <a class="dropdown-item" href='@Url.Action("Product", "Home",new { category = "high"})'>Latest Product</a>
+                    </div>
+                </li>
+ 
+            </ul>
+            @if (Session["name"] == null)
+            {
+                <a href='@Url.Action("Login", "Home")'>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+                </a>
+            }
+            else
+            {
+                <a href='@Url.Action("SignOut", "Home")'>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Out</button>
+                </a>
+            }
+
+        </div>
+    </nav>
+
+
+
+
+
+    <!-- header-end -->
+
+    @RenderBody()
+
+    <!-- footer start -->
+
+    <footer>
+        <div class="container-fluid" style="background-color:#f8f9fa; margin-top:50px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm" style="padding:40px 40px 40px 40px;">
+                        <h2 style="color:green">Bussiness Product Site</h2>
+                        <p> Testing site </p>
+                        
+
+                    </div>
+                    <div class="col-sm" style="padding:40px 40px 40px 40px;">
+                        <h5 style="color:green">Services</h5>
+                        <h6> Purchase Product </h6>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    (function ($) {
+        "use strict";
+
+        jQuery(document).ready(function ($) {
+
+        });
+
+        jQuery(window).load(function () {
+            $("#preloader").fadeOut(1000);
+
+        });
+
+    }(jQuery));
+</script>
+</html>
+
